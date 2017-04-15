@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="loginForm">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-controller="MainCtrl as ctrl">
+
+    <input type="text" ng-model="ctrl.username" >
+    <input type="password" ng-model="ctrl.password" >
+    <button ng-click="ctrl.change()">Change Values</button>
+    <button ng-click="ctrl.submit()">Submit</button>
+
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js">
+    </script>
+    <script type="text/javascript">
+      angular.module('loginForm',[])
+      .controller('MainCtrl',[function(){
+        var self = this;
+        self.username = "";
+        self.password = "";
+
+        self.change = function()
+        {
+          self.username = "changed";
+          self.password = "password";
+        };
+
+        self.submit = function()
+        {
+          console.log('user clicked submit with',self.username,self.password);
+        };
+      }]);
+    </script>
+  </body>
+</html>
